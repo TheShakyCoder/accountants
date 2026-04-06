@@ -34,6 +34,14 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'site' => [
+                'fullname' => config('site.fullname'),
+                'email' => config('site.email'),
+                'telephone' => config('site.telephone'),
+                'address' => config('site.address'),
+                'opening_times' => config('site.opening_times'),
+                'charity_number' => config('site.charity_number'),
+            ],
         ];
     }
 }
