@@ -25,6 +25,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //  ADMIN ROUTES
+    Route::get('/admin', [\App\Http\Controllers\Internal\InternalController::class, 'dashboard'])->name('admin.dashboard');
+    Route::name('admin.')->prefix('admin')->group(function () {
+        Route::resource('posts', \App\Http\Controllers\Internal\PostController::class);
+        Route::resource('roles', \App\Http\Controllers\Internal\RoleController::class)
+            ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+
+        Route::get('roles/{role}/rights', [\App\Http\Controllers\Internal\RoleRightController::class, 'index'])->name('role_rights.index');
+        Route::post('roles/{role}/rights', [\App\Http\Controllers\Internal\RoleRightController::class, 'store'])->name('role_rights.store');
+        Route::put('roles/{role}/rights', [\App\Http\Controllers\Internal\RoleRightController::class, 'update'])->name('role_rights.update');
+    });
 });
 
 require __DIR__.'/auth.php';
