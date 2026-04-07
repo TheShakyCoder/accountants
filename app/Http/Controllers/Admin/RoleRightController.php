@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Internal;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Right;
@@ -15,7 +15,7 @@ class RoleRightController extends Controller
 {
     public function index(Role $role): Response
     {
-        $internal = collect(Route::getRoutes()->getRoutes())
+        $internalRoutes = collect(Route::getRoutes()->getRoutes())
             ->filter(function($item) {
 
                 return
@@ -44,7 +44,7 @@ class RoleRightController extends Controller
 
         return Inertia::render('Admin/Roles/Rights/Index', [
             'role' => $role->load('rights'),
-            'internal' => $internal
+            'internal' => $internalRoutes
         ]);
     }
 
@@ -63,7 +63,7 @@ class RoleRightController extends Controller
     {
         $role->rights()->updateOrCreate(['controller_method_name' => $request->get('controller_method_name')]);
 
-        return to_route('internal.roles.rights.index', ['role' => $role]);
+        return to_route('admin.roles.rights.index', ['role' => $role]);
     }
 
     /**
@@ -94,7 +94,7 @@ class RoleRightController extends Controller
             if($state) $role->rights()->create(['controller_method_name' => $controllerMethodName]);
         });
 
-        return to_route('internal.role_rights.index', ['role' => $role])
+        return to_route('admin.role_rights.index', ['role' => $role])
             ->with('success', 'Rights for "' . $role->name . '" updated successfully.');
     }
 

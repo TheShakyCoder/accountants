@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Internal;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
@@ -8,11 +8,11 @@ use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
 
-class InternalController extends Controller
+class AdminController extends Controller
 {
     public function dashboard()
     {
-        return Inertia::render('Internal/Dashboard', [
+        return Inertia::render('Admin/Dashboard', [
             'stats' => [
                 'posts'  => Post::count(),
                 'users'  => User::count(),

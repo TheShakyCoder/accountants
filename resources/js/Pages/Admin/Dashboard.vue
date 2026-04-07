@@ -58,7 +58,7 @@ function formatDate(iso) {
         <template #header>
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-xl font-semibold text-warm-900 font-display">Internal Dashboard</h1>
+                    <h1 class="text-xl font-semibold text-warm-900 font-display">Admin Dashboard</h1>
                     <p class="text-sm text-warm-500 mt-0.5">Welcome back, {{ page.props.auth.user.name }}</p>
                 </div>
                 <a href="/" target="_blank"

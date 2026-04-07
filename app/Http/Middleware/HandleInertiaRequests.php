@@ -29,6 +29,13 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        if($request->user()) {
+            $can = [
+                'admin' => $request->user()->is_admin,
+                'create_user' => $request->user()->can('create', User::class),
+                'create_post' => $request->user()->can('create', Post::class),
+            ];
+        }
         return [
             ...parent::share($request),
             'auth' => [
@@ -47,6 +54,8 @@ class HandleInertiaRequests extends Middleware
                 'charity_number' => config('site.charity_number'),
                 'nav_links' => config('site.nav_links'),
             ],
+
+            'can' => $can ?? [],
         ];
     }
 }

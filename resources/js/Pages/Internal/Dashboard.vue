@@ -18,8 +18,8 @@ const recentActivity = [
 ];
 
 const quickLinks = [
-    { label: 'Add Event', icon: '📅', href: '#', color: 'bg-brand-600 hover:bg-brand-700 text-white' },
-    { label: 'Write News', icon: '✍️', href: '#', color: 'bg-sky-500 hover:bg-sky-600 text-white' },
+    { label: 'Events', icon: '📅', href: '#', color: 'bg-brand-600 hover:bg-brand-700 text-white' },
+    { label: 'News', icon: '✍️', href: route('internal.posts.index'), color: 'bg-sky-500 hover:bg-sky-600 text-white' },
     { label: 'Add Member', icon: '👤', href: '#', color: 'bg-purple-600 hover:bg-purple-700 text-white' },
     { label: 'View Reports', icon: '📊', href: '#', color: 'bg-warm-700 hover:bg-warm-800 text-white' },
 ];

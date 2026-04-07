@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Internal;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
@@ -11,14 +11,14 @@ class RoleController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Internal/Roles/Index', [
+        return Inertia::render('Admin/Roles/Index', [
             'roles' => Role::latest()->paginate(20),
         ]);
     }
 
     public function create()
     {
-        return Inertia::render('Internal/Roles/Create');
+        return Inertia::render('Admin/Roles/Create');
     }
 
     public function store(Request $request)
@@ -30,12 +30,12 @@ class RoleController extends Controller
 
         Role::create($validated);
 
-        return to_route('internal.roles.index');
+        return to_route('admin.roles.index');
     }
 
     public function show(Role $role)
     {
-        return Inertia::render('Internal/Roles/Show', [
+        return Inertia::render('Admin/Roles/Show', [
             'role' => $role->load('rights'),
         ]);
     }
