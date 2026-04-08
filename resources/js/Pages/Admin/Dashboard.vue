@@ -43,7 +43,7 @@ function formatDate(iso) {
 </script>
 
 <template>
-    <Head title="Internal Dashboard" />
+    <Head title="Admin Dashboard" />
 
     <AuthenticatedLayout title="Admin Dashboard">
         <template #header>

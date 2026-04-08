@@ -39,12 +39,19 @@ const showingNavigationDropdown = ref(false);
                                 Dashboard
                             </Link>
                             <Link :href="route('admin.dashboard')"
-                                  v-if="$page.props.can.admin"
+                                  v-if="$page.props.can?.admin"
                                   class="px-3 py-2 text-sm font-medium rounded-lg transition-colors"
                                   :class="route().current('admin.dashboard')
                                       ? 'bg-brand-50 text-brand-700'
                                       : 'text-warm-600 hover:bg-warm-100 hover:text-warm-900'">
-                                Admin Dashboard
+                                Admin
+                            </Link>
+                            <Link href="/admin/media"
+                                  class="px-3 py-2 text-sm font-medium rounded-lg transition-colors"
+                                  :class="$page.url.startsWith('/admin/media')
+                                      ? 'bg-brand-50 text-brand-700'
+                                      : 'text-warm-600 hover:bg-warm-100 hover:text-warm-900'">
+                                Media
                             </Link>
                         </div>
                     </div>

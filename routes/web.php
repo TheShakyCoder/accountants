@@ -40,6 +40,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('users/{user}/roles', [\App\Http\Controllers\Admin\UserRoleController::class, 'index'])->name('user_roles.index');
         Route::put('users/{user}/roles', [\App\Http\Controllers\Admin\UserRoleController::class, 'update'])->name('user_roles.update');
         
+        Route::get('media', [\App\Http\Controllers\Admin\MediaController::class, 'index'])->name('media.index');
+        Route::post('media', [\App\Http\Controllers\Admin\MediaController::class, 'store'])->name('media.store');
+        Route::patch('media/{medium}', [\App\Http\Controllers\Admin\MediaController::class, 'update'])->name('media.update');
+        Route::delete('media/{medium}', [\App\Http\Controllers\Admin\MediaController::class, 'destroy'])->name('media.destroy');
+
         Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
         Route::get('roles/{role}/rights', [\App\Http\Controllers\Admin\RoleRightController::class, 'index'])->name('role_rights.index');
         Route::post('roles/{role}/rights', [\App\Http\Controllers\Admin\RoleRightController::class, 'store'])->name('role_rights.store');
