@@ -22,7 +22,16 @@ class PostController extends Controller
             ]);
 
         return Inertia::render('Post/Index', [
-            'posts'      => $posts,
+            'posts'       => $posts,
+            'canLogin'    => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
+
+    public function show(Post $post)
+    {
+        return Inertia::render('Post/Show', [
+            'post'        => $post,
             'canLogin'    => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);

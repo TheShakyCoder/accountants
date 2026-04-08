@@ -20,31 +20,57 @@ class PostController extends Controller
 
     public function create()
     {
-        //
+        return Inertia::render('Internal/Posts/Create');
     }
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title'   => ['required', 'string', 'max:255'],
+            'slug'    => ['required', 'string', 'max:255', 'unique:posts,slug'],
+            'content' => ['required', 'string'],
+        ]);
+
+        Post::create($validated);
+
+        return to_route('internal.posts.index')
+            ->with('success', '"' . $validated['title'] . '" published successfully.');
     }
 
     public function show(Post $post)
     {
-        //
+        return Inertia::render('Internal/Posts/Show', [
+            'post' => $post,
+        ]);
     }
 
     public function edit(Post $post)
     {
-        //
+        return Inertia::render('Internal/Posts/Edit', [
+            'post' => $post,
+        ]);
     }
 
     public function update(Request $request, Post $post)
     {
-        //
+        $validated = $request->validate([
+            'title'   => ['required', 'string', 'max:255'],
+            'slug'    => ['required', 'string', 'max:255', \Illuminate\Validation\Rule::unique('posts', 'slug')->ignore($post->id)],
+            'content' => ['required', 'string'],
+        ]);
+
+        $post->update($validated);
+
+        return to_route('internal.posts.index')
+            ->with('success', '"' . $post->title . '" updated successfully.');
     }
 
     public function destroy(Post $post)
     {
-        //
+        $title = $post->title;
+        $post->delete();
+
+        return to_route('internal.posts.index')
+            ->with('success', '"' . $title . '" deleted successfully.');
     }
 }

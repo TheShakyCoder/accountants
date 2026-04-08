@@ -95,8 +95,9 @@ function tagColour(index) {
 
                 <!-- Post list -->
                 <div v-else class="flex flex-col gap-5">
-                    <article v-for="(post, index) in props.posts.data" :key="post.id"
-                             class="group flex border border-warm-200 rounded-2xl overflow-hidden hover:border-brand-300 hover:shadow-lg transition-all duration-200">
+                    <Link v-for="(post, index) in props.posts.data" :key="post.id"
+                          :href="`/news-updates/${post.id}`"
+                          class="group flex border border-warm-200 rounded-2xl overflow-hidden hover:border-brand-300 hover:shadow-lg transition-all duration-200">
 
                         <!-- Colour accent left bar -->
                         <div class="w-1.5 shrink-0"
@@ -139,7 +140,7 @@ function tagColour(index) {
                                 </svg>
                             </div>
                         </div>
-                    </article>
+                    </Link>
                 </div>
 
                 <!-- Pagination -->
