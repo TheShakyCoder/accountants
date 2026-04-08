@@ -47,12 +47,12 @@ const page = usePage();
                     <div class="bg-white rounded-2xl p-5 border border-warm-200 flex flex-col items-start gap-2">
                         <span class="text-3xl">🏅</span>
                         <p class="text-sm font-semibold text-warm-800">Registered Charity</p>
-                        <p class="text-xs text-warm-500">No. 1234567</p>
+                        <p class="text-xs text-warm-500">No. {{ page.props.site.charity_number }}</p>
                     </div>
                     <div class="bg-white rounded-2xl p-5 border border-warm-200 flex flex-col items-start gap-2">
                         <span class="text-3xl">🌿</span>
-                        <p class="text-sm font-semibold text-warm-800">Est. 1993</p>
-                        <p class="text-xs text-warm-500">Over 30 years of service</p>
+                        <p class="text-sm font-semibold text-warm-800">Est. {{ page.props.site.established }}</p>
+                        <p class="text-xs text-warm-500">{{ 2026 - page.props.site.established }} years of service</p>
                     </div>
                 </div>
             </div>
