@@ -2,7 +2,7 @@
 import { computed, onMounted } from 'vue';
 import { router, useForm, Link, usePage } from '@inertiajs/vue3';
 import { Head } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout/Index.vue';
 import Groups from './Partials/Groups.vue';
 
 const page = usePage();

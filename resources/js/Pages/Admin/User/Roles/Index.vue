@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useForm, Link, Head, usePage } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout/Index.vue';
 
 const page = usePage();
 

@@ -1,6 +1,6 @@
 <script setup>
 import { Link, useForm, router } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout/Index.vue';
 import { ref, computed } from 'vue';
 
 const props = defineProps({

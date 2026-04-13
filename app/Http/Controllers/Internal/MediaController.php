@@ -13,6 +13,8 @@ class MediaController extends Controller
 {
     public function index(Request $request)
     {
+        if ($request->user()->cannot('viewAny', Media::class)) abort(403);
+
         $media = Media::latest()
             ->when($request->search, fn ($q, $s) => $q->where('filename', 'like', "%{$s}%"))
             ->paginate(24);
@@ -21,7 +23,7 @@ class MediaController extends Controller
             return response()->json(['media' => $media]);
         }
 
-        return Inertia::render('Admin/Media/Index', [
+        return Inertia::render('Internal/Media/Index', [
             'media'  => $media,
             'search' => $request->search ?? '',
         ]);

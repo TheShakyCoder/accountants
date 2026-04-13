@@ -30,14 +30,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Internal/Dashboard');
     })->name('dashboard');
     Route::name('internal.')->prefix('internal')->group(function () {
-        Route::resource('posts', \App\Http\Controllers\Internal\PostController::class);
-        
-        Route::get('media', [\App\Http\Controllers\Internal\MediaController::class, 'index'])->name('media.index');
-        Route::post('media', [\App\Http\Controllers\Internal\MediaController::class, 'store'])->name('media.store');
-        Route::patch('media/{medium}', [\App\Http\Controllers\Internal\MediaController::class, 'update'])->name('media.update');
-        Route::delete('media/{medium}', [\App\Http\Controllers\Internal\MediaController::class, 'destroy'])->name('media.destroy');
-        
+        Route::resource('media', \App\Http\Controllers\Internal\MediaController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::resource('menu-items', \App\Http\Controllers\Internal\MenuItemController::class);
+        Route::resource('pages', \App\Http\Controllers\Internal\PageController::class);
+        Route::resource('posts', \App\Http\Controllers\Internal\PostController::class);
+        Route::resource('activities', \App\Http\Controllers\Internal\ActivityController::class);
     });
 
     //  ADMIN ROUTES

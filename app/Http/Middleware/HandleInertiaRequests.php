@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Route;
 use App\Models\MenuItem;
 use App\Models\User;
 use App\Models\Post;
@@ -33,12 +34,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         if($request->user()) {
-            $can = [
-                'admin' => $request->user()->is_admin,
-                'create_user' => $request->user()->can('create', User::class),
-                'create_post' => $request->user()->can('create', Post::class),
-                'view_posts' => $request->user()->can('viewAny', Post::class),
-            ];
+            $can = $request->user()->getPermissions();
         }
 
         // Load menu items from database

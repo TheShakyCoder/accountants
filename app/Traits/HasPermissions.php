@@ -31,20 +31,4 @@ trait HasPermissions
             return $role->rights->pluck('controller_method_name');
         })->flatten();
     }
-
-    public function getLinks()
-    {
-        $rights = $this->getPermissions();
-        $links =  Link::
-            whereIn('route', $rights)
-            ->orWhereNull('parent_id')
-            ->get()
-            ->toTree()
-            ->filter(function($element) {
-                return $element->children->count() > 0 || $element->route;
-            })
-        ;
-
-        return $links;
-    }
 }

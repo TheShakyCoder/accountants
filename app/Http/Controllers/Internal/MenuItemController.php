@@ -9,14 +9,16 @@ use Inertia\Inertia;
 
 class MenuItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->user()->cannot('viewAny', MenuItem::class)) abort(403);
+
         $items = MenuItem::whereNull('parent_id')
             ->with('children')
             ->orderBy('order')
             ->get();
 
-        return Inertia::render('Admin/MenuItem/Index', [
+        return Inertia::render('Internal/MenuItem/Index', [
             'items' => $items,
         ]);
     }
@@ -29,7 +31,7 @@ class MenuItemController extends Controller
             ->orderBy('order')
             ->get();
 
-        return Inertia::render('Admin/MenuItem/Create', [
+        return Inertia::render('Internal/MenuItem/Create', [
             'parentId' => $parentId,
             'parentItem' => $parentItem,
             'topLevelItems' => $topLevelItems,
@@ -63,7 +65,7 @@ class MenuItemController extends Controller
 
         MenuItem::create($validated);
 
-        return redirect()->route('admin.menu-items.index')
+        return redirect()->route('internal.menu-items.index')
             ->with('success', 'Menu item created successfully.');
     }
 
@@ -74,7 +76,7 @@ class MenuItemController extends Controller
             ->orderBy('order')
             ->get();
 
-        return Inertia::render('Admin/MenuItem/Edit', [
+        return Inertia::render('Internal/MenuItem/Edit', [
             'menuItem' => $menuItem,
             'topLevelItems' => $topLevelItems,
         ]);
@@ -98,15 +100,17 @@ class MenuItemController extends Controller
 
         $menuItem->update($validated);
 
-        return redirect()->route('admin.menu-items.index')
+        return redirect()->route('internal.menu-items.index')
             ->with('success', 'Menu item updated successfully.');
     }
 
-    public function destroy(MenuItem $menuItem)
+    public function destroy(MenuItem $menuItem, Request $request)
     {
+        if ($request->user()->cannot('delete', $menuItem)) abort(403);
+
         $menuItem->delete();
 
-        return redirect()->route('admin.menu-items.index')
+        return redirect()->route('internal.menu-items.index')
             ->with('success', 'Menu item deleted successfully.');
     }
 }

@@ -1,9 +1,11 @@
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
 import { router } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout/Index.vue';
+import { onMounted } from 'vue';
 
 const page = usePage();
+
 
 const props = defineProps({
     items: { type: Array, required: true },
@@ -11,12 +13,18 @@ const props = defineProps({
 
 function deleteItem(id) {
     if (!confirm('Delete this menu item?')) return;
-    router.delete(route('admin.menu-items.destroy', id), {
+    router.delete(route('internal.menu-items.destroy', id), {
         onSuccess: () => {
             console.log('Item deleted');
         }
     });
 }
+
+onMounted(() => {
+    console.log('Can:', page.props.can);
+    console.log('Route name:', route().current());
+
+});
 </script>
 
 <template>
@@ -27,7 +35,7 @@ function deleteItem(id) {
                     <h1 class="text-3xl font-bold text-warm-900">Menu Builder</h1>
                     <p class="text-warm-500 mt-1">Manage the header navigation menu</p>
                 </div>
-                <Link href="/admin/menu-items/create"
+                <Link href="/internal/menu-items/create"
                       class="px-4 py-2 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors">
                     + New Item
                 </Link>
@@ -56,7 +64,7 @@ function deleteItem(id) {
                             </p>
                         </div>
                         <div class="flex items-center gap-2">
-                            <Link :href="`/admin/menu-items/${item.id}/edit`"
+                            <Link :href="`/internal/menu-items/${item.id}/edit`"
                                   class="px-3 py-1.5 text-sm text-brand-600 hover:bg-brand-50 rounded-lg transition-colors">
                                 Edit
                             </Link>

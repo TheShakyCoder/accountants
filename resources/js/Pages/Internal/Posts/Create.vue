@@ -1,6 +1,6 @@
 <script setup>
 import { useForm, Link, Head } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout/Index.vue';
 import MarkdownEditor from '@/Components/MarkdownEditor.vue';
 import MediaPicker from '@/Components/MediaPicker.vue';
 import { ref } from 'vue';
