@@ -3,11 +3,10 @@
 # Container entrypoint used by Nixpacks on Coolify.
 #
 # Runs DB-dependent and env-dependent tasks at container boot (where the
-# database service is reachable), then hands off to the Nixpacks PHP
-# provider's bundled nginx + php-fpm setup.
+# database service is reachable), then starts php-fpm and nginx using
+# the self-contained config shipped in this repo (nixpacks-nginx.conf).
 #
-# The build-time Dockerfile CMD invokes this script because nixpacks.toml
-# sets `[start] cmd = "bash /app/nixpacks-start.sh"`.
+# Invoked via `[start] cmd = "bash /app/nixpacks-start.sh"` in nixpacks.toml.
 
 set -euo pipefail
 
@@ -29,22 +28,18 @@ php artisan route:cache
 php artisan view:cache
 php artisan event:cache
 
-echo "==> [startup] rendering nginx config from Nixpacks template"
-# Nixpacks PHP provider ships an nginx template that needs env-var
-# substitution (for NIXPACKS_PHP_ROOT_DIR, PORT, etc.) before nginx can
-# load it. The prestart.mjs script performs that substitution.
-if [[ -f /assets/scripts/prestart.mjs ]]; then
-  node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
-elif [[ -f /assets/nginx.template.conf ]]; then
-  # Fallback: copy template verbatim if the prestart script is missing.
-  cp /assets/nginx.template.conf /etc/nginx.conf
-fi
+echo "==> [startup] preparing nginx temp dirs"
+# Our nginx.conf points these at /tmp so nginx doesn't need /var/cache
+# write access. Make sure they exist.
+mkdir -p /tmp/nginx-client-body /tmp/nginx-proxy /tmp/nginx-fastcgi /tmp/nginx-uwsgi /tmp/nginx-scgi
 
 echo "==> [startup] starting php-fpm (background)"
+# Nixpacks' bundled php-fpm.conf listens on 127.0.0.1:9000, which is
+# what our nginx config's fastcgi_pass targets.
 php-fpm -y /assets/php-fpm.conf --daemonize
 
-echo "==> [startup] exec nginx (foreground)"
-# NOTE: do NOT pass `-g "daemon off;"` here — the Nixpacks nginx template
-# already includes a `daemon off;` directive on line 2, and duplicating
-# it is a fatal nginx error. Just let the config file drive it.
-exec nginx -c /etc/nginx.conf
+echo "==> [startup] exec nginx with repo-provided config"
+# Use our own nginx config — bypasses the Nixpacks PHP provider's
+# template, which was producing duplicate location blocks on Laravel.
+# `daemon off;` lives inside the config file itself, so no -g flag needed.
+exec nginx -c /app/nixpacks-nginx.conf
