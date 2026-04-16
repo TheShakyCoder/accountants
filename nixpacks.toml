@@ -16,12 +16,36 @@ cmd = '/assets/start.sh'
 [staticAssets]
 "start.sh" = '''
 #!/bin/bash
+set -euo pipefail
 
-# Transform the nginx configuration
+cd /app
+
+# --- Laravel boot steps ---------------------------------------------------
+# These run at container boot (not image build) so they see Coolify's real
+# runtime env vars and can reach the DB service on the shared network.
+
+echo "==> [startup] artisan migrate --force"
+php artisan migrate --force --no-interaction
+
+echo "==> [startup] artisan storage:link (idempotent)"
+php artisan storage:link 2>/dev/null || true
+
+echo "==> [startup] rebuilding Laravel caches against runtime env"
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+php artisan event:clear
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+php artisan event:cache
+
+# --- nginx + supervisor ---------------------------------------------------
+echo "==> [startup] transforming nginx template"
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 
-# Start supervisor
-supervisord -c /etc/supervisord.conf -n
+echo "==> [startup] exec supervisord"
+exec supervisord -c /etc/supervisord.conf -n
 '''
 
 "supervisord.conf" = '''
