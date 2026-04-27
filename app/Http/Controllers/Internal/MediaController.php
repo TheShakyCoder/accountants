@@ -52,6 +52,7 @@ class MediaController extends Controller
                         Str::uuid() . '.' . $file->getClientOriginalExtension(),
                         ['disk' => 's3', 'throw' => true],
                     );
+                    Log::info('$path: ' . $path);
                 } catch (\Throwable $e) {
                     logger()->error('S3 upload failed', [
                         'message' => $e->getMessage(),
