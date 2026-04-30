@@ -23,6 +23,26 @@ return new class extends Migration
             $table->index('viewed_at');
             $table->index('url');
         });
+
+        DB::unprepared("
+            CREATE TRIGGER page_views_no_update
+            BEFORE UPDATE ON `page_views`
+            FOR EACH ROW
+            BEGIN
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'Updates are not allowed on page_views';
+            END
+        ");
+
+        DB::unprepared("
+            CREATE TRIGGER page_views_no_delete
+            BEFORE DELETE ON `page_views`
+            FOR EACH ROW
+            BEGIN
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'Deletes are not allowed on page_views';
+            END
+        ");
     }
 
     public function down(): void
