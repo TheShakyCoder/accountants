@@ -4,8 +4,10 @@ import vue from '@vitejs/plugin-vue';
 import fs from 'fs';
 
 const port = 5173
-const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`
-
+const origin = process.env.DDEV_PRIMARY_URL
+    ? `${process.env.DDEV_PRIMARY_URL}:${port}`
+    : undefined;
+    
 export default defineConfig({
     plugins: [
         laravel({
@@ -28,9 +30,8 @@ export default defineConfig({
         port: port,
         strictPort: true,
         origin: origin,
-        hmr: {
-            host: process.env.DDEV_HOSTNAME,
-            protocol: 'wss'
-        }
+        hmr: process.env.DDEV_HOSTNAME
+            ? { host: process.env.DDEV_HOSTNAME, protocol: 'wss' }
+            : undefined,
     },
 });

@@ -1,63 +1,52 @@
 <script setup>
-import PrimaryLink from '@/Components/PrimaryLink.vue';
-import { Link, usePage } from '@inertiajs/vue3';
-
-const page = usePage();
+// No extra imports needed
 </script>
 
 <template>
-    <section id="about" class="py-20 bg-warm-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-3 block">About Us</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-warm-900 mb-6 leading-tight">
-                        More than just<br />a <span class="text-gradient-candy">sweet shop</span>
-                    </h2>
-                    <p class="text-warm-600 leading-relaxed mb-4">
-                        Penwortham Lollipops is a family-run sweet shop bursting with colour, flavour,
-                        and a whole lot of fun. We're passionate about bringing you the best sweets from
-                        around the world — from nostalgic retro favourites to the latest American imports.
-                    </p>
-                    <p class="text-warm-600 leading-relaxed mb-8">
-                        Pop in and you'll be greeted with a friendly face and aisles packed with over 90
-                        self-serve pick 'n' mix varieties, American candy, sour sweets, chocolate, and
-                        olde world treats. Whether you're after a gift, party supplies, or just a cheeky
-                        treat for yourself — we've got you covered.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <a href="#sweets"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-xl hover:bg-brand-600 transition-colors shadow-sm">
-                            See What We Sell
-                        </a>
-                        <a href="#contact"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-brand-200 text-brand-600 text-sm font-semibold rounded-xl hover:border-brand-400 transition-colors">
-                            Find Us
-                        </a>
-                    </div>
-                </div>
+    <section id="about" class="grid lg:grid-cols-2 min-h-[560px]">
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="rounded-2xl p-6 text-white col-span-2" style="background: linear-gradient(135deg, #ff1a75 0%, #d946ef 50%, #8b5cf6 100%)">
-                        <p class="text-2xl font-display font-bold mb-2">"An amazing shop!"</p>
-                        <p class="text-white/80 text-sm leading-relaxed">
-                            "We got a giant bag of sweets, some choc nibbles and two bags of blue takis.
-                            The staff were so lovely — highly recommended! We'll definitely be back."
-                        </p>
-                        <p class="text-white/60 text-xs mt-3 font-medium">— Happy customer via TikTok</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-5 border border-warm-200 flex flex-col items-start gap-2">
-                        <span class="text-3xl">&#127853;</span>
-                        <p class="text-sm font-semibold text-warm-800">Self-Serve Pick 'n' Mix</p>
-                        <p class="text-xs text-warm-500">90+ varieties to choose from</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-5 border border-warm-200 flex flex-col items-start gap-2">
-                        <span class="text-3xl">&#127758;</span>
-                        <p class="text-sm font-semibold text-warm-800">American Imports</p>
-                        <p class="text-xs text-warm-500">The latest from the US</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Visual panel -->
+        <div class="relative bg-coffee-dark flex items-center justify-center min-h-[340px] lg:min-h-0 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-coffee-espresso via-coffee-dark to-coffee-mid"></div>
+            <!-- Decorative rings -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full border border-coffee-caramel/10"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] rounded-full border border-coffee-caramel/15"></div>
+            <!-- Cup SVG -->
+            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" fill="none" class="relative z-10 w-52 h-52 opacity-80">
+                <ellipse cx="130" cy="197" rx="68" ry="13" fill="rgba(196,149,106,0.18)" stroke="rgba(196,149,106,0.45)" stroke-width="1.5"/>
+                <path d="M86 118 Q83 186 130 194 Q177 186 174 118 Z" fill="rgba(107,52,33,0.55)" stroke="rgba(196,149,106,0.55)" stroke-width="1.5"/>
+                <ellipse cx="130" cy="118" rx="44" ry="8.5" fill="rgba(196,149,106,0.12)" stroke="rgba(196,149,106,0.5)" stroke-width="1.5"/>
+                <ellipse cx="130" cy="120" rx="37" ry="7" fill="rgba(28,10,0,0.85)"/>
+                <path d="M118 120 Q124 114 130 120 Q136 126 142 120" stroke="rgba(245,230,211,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="130" cy="120" r="2.5" fill="rgba(245,230,211,0.28)"/>
+                <path d="M174 133 Q197 133 197 159 Q197 184 174 179" stroke="rgba(196,149,106,0.55)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M113 107 Q109 94 113 81" stroke="rgba(245,230,211,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M130 104 Q126 89 130 74" stroke="rgba(245,230,211,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M147 107 Q151 94 147 81" stroke="rgba(245,230,211,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Text panel -->
+        <div class="bg-coffee-cream px-8 py-16 lg:px-16 flex flex-col justify-center">
+            <p class="text-coffee-caramel text-xs font-bold uppercase tracking-[0.22em] mb-5">Our Story</p>
+            <h2 class="font-display text-coffee-espresso font-extrabold leading-tight mb-6"
+                style="font-size: clamp(1.9rem, 3.5vw, 2.8rem);">
+                A warm welcome,<br/>every single visit.
+            </h2>
+            <div class="w-14 h-0.5 bg-coffee-gold mb-7"></div>
+            <p class="text-coffee-mid leading-relaxed mb-4">
+                Tucked into the heart of <strong class="text-coffee-espresso">Penwortham village</strong>, Bonbons is more than just a coffee bar — it's a place where conversations linger, friendships deepen, and every cup is made with intention.
+            </p>
+            <p class="text-coffee-mid leading-relaxed mb-4">
+                We serve <strong class="text-coffee-espresso">quality coffee and specialty teas</strong> alongside homemade cakes, hearty breakfasts and light lunches — all in an atmosphere that feels equal parts stylish and unhurried.
+            </p>
+            <p class="text-coffee-mid leading-relaxed mb-8">
+                Whether you're catching up with friends, holding a business meeting, or simply treating yourself — Bonbons is your corner of calm in Preston.
+            </p>
+            <a href="#contact"
+               class="self-start px-6 py-3 bg-coffee-espresso text-coffee-cream text-xs font-bold uppercase tracking-widest rounded hover:bg-coffee-mid transition-all">
+                Come and see us
+            </a>
         </div>
     </section>
 </template>

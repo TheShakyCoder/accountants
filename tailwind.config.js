@@ -14,10 +14,22 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter', ...defaultTheme.fontFamily.sans],
-                display: ['Poppins', ...defaultTheme.fontFamily.sans],
+                sans:    ['Lato', 'Inter', ...defaultTheme.fontFamily.sans],
+                display: ['Playfair Display', 'Poppins', ...defaultTheme.fontFamily.serif],
+                serif:   ['Playfair Display', ...defaultTheme.fontFamily.serif],
             },
             colors: {
+                // ── Coffee bar palette ──────────────────────────────────
+                coffee: {
+                    espresso: '#1C0A00',
+                    dark:     '#3B1A08',
+                    mid:      '#6B3421',
+                    caramel:  '#A0622A',
+                    gold:     '#C4956A',
+                    cream:    '#F5E6D3',
+                    ivory:    '#FDF6EE',
+                },
+                // ── Keep existing brand/candy for internal + auth pages ─
                 brand: {
                     50:  '#fff0f6',
                     100: '#ffe0ed',
@@ -41,14 +53,14 @@ export default {
                     700: '#b87300',
                 },
                 candy: {
-                    purple: '#8b5cf6',
+                    purple:  '#8b5cf6',
                     magenta: '#d946ef',
-                    blue:   '#06b6d4',
-                    green:  '#10b981',
-                    orange: '#f97316',
-                    red:    '#ef4444',
-                    yellow: '#fbbf24',
-                    pink:   '#f472b6',
+                    blue:    '#06b6d4',
+                    green:   '#10b981',
+                    orange:  '#f97316',
+                    red:     '#ef4444',
+                    yellow:  '#fbbf24',
+                    pink:    '#f472b6',
                 },
                 warm: {
                     50:  '#fafaf9',
@@ -66,27 +78,32 @@ export default {
             keyframes: {
                 float: {
                     '0%, 100%': { transform: 'translateY(0) rotate(var(--tw-rotate, 0deg))' },
-                    '50%': { transform: 'translateY(-20px) rotate(var(--tw-rotate, 0deg))' },
+                    '50%':      { transform: 'translateY(-20px) rotate(var(--tw-rotate, 0deg))' },
                 },
                 'float-slow': {
                     '0%, 100%': { transform: 'translateY(0) rotate(var(--tw-rotate, 0deg))' },
-                    '50%': { transform: 'translateY(-30px) rotate(var(--tw-rotate, 0deg))' },
+                    '50%':      { transform: 'translateY(-30px) rotate(var(--tw-rotate, 0deg))' },
                 },
                 wiggle: {
                     '0%, 100%': { transform: 'rotate(-6deg)' },
-                    '50%': { transform: 'rotate(6deg)' },
+                    '50%':      { transform: 'rotate(6deg)' },
                 },
                 'scale-pulse': {
                     '0%, 100%': { transform: 'scale(1)' },
-                    '50%': { transform: 'scale(1.08)' },
+                    '50%':      { transform: 'scale(1.08)' },
+                },
+                'scroll-down': {
+                    '0%, 100%': { opacity: '0.3', transform: 'translateY(0)' },
+                    '50%':      { opacity: '1',   transform: 'translateY(8px)' },
                 },
             },
             animation: {
-                float: 'float 4s ease-in-out infinite',
-                'float-slow': 'float-slow 6s ease-in-out infinite',
-                'float-delayed': 'float 5s ease-in-out 1s infinite',
-                wiggle: 'wiggle 2s ease-in-out infinite',
-                'scale-pulse': 'scale-pulse 3s ease-in-out infinite',
+                float:          'float 4s ease-in-out infinite',
+                'float-slow':   'float-slow 6s ease-in-out infinite',
+                'float-delayed':'float 5s ease-in-out 1s infinite',
+                wiggle:         'wiggle 2s ease-in-out infinite',
+                'scale-pulse':  'scale-pulse 3s ease-in-out infinite',
+                'scroll-down':  'scroll-down 2s ease-in-out infinite',
             },
         },
     },

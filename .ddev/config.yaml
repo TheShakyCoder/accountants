@@ -1,4 +1,4 @@
-name: lollipops
+name: bonbons
 type: laravel
 docroot: public
 php_version: "8.4"
