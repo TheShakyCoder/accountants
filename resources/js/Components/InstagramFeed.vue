@@ -1,5 +1,6 @@
 <script setup>
 import { usePage } from '@inertiajs/vue3';
+import HeartDivider from '@/Components/HeartDivider.vue';
 
 const page = usePage();
 const facebookUrl  = page.props.site.social?.facebook  || 'https://www.facebook.com/Penwortham2017';
@@ -7,15 +8,16 @@ const instagramUrl = page.props.site.social?.instagram || 'https://www.instagram
 </script>
 
 <template>
-    <section id="social" class="bg-coffee-cream py-20">
+    <section id="social" class="bg-paper py-20">
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
 
-            <p class="text-coffee-caramel text-xs font-bold uppercase tracking-[0.22em] mb-5">Stay Connected</p>
+            <p class="font-hand text-coffee-caramel text-3xl mb-1">stay connected</p>
             <h2 class="font-display text-coffee-espresso font-extrabold mb-4"
                 style="font-size: clamp(1.8rem, 3vw, 2.6rem);">
                 Follow the Bonbons life.
             </h2>
-            <p class="font-display italic text-coffee-mid text-lg mb-10">
+            <HeartDivider align="center" class="mb-6" />
+            <p class="text-coffee-mid max-w-lg mx-auto mb-10 leading-relaxed">
                 Behind-the-scenes, seasonal specials and regular giveaways — all on our socials.
             </p>
 
@@ -24,7 +26,7 @@ const instagramUrl = page.props.site.social?.instagram || 'https://www.instagram
                 <a
                     :href="facebookUrl"
                     target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-3 px-8 py-4 bg-[#1877F2] text-white text-xs font-bold uppercase tracking-widest rounded hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-md"
+                    class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#1877F2] text-white text-sm font-bold hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-warm-sm"
                     aria-label="Follow Bonbons on Facebook"
                 >
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -37,7 +39,7 @@ const instagramUrl = page.props.site.social?.instagram || 'https://www.instagram
                 <a
                     :href="instagramUrl"
                     target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-3 px-8 py-4 text-white text-xs font-bold uppercase tracking-widest rounded hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-md"
+                    class="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white text-sm font-bold hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-warm-sm"
                     style="background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)"
                     aria-label="Follow Bonbons on Instagram"
                 >
@@ -50,8 +52,8 @@ const instagramUrl = page.props.site.social?.instagram || 'https://www.instagram
                 </a>
             </div>
 
-            <p class="text-coffee-caramel/70 text-xs uppercase tracking-widest">
-                Follow us for giveaways, updates and daily specials
+            <p class="font-hand text-coffee-caramel text-2xl">
+                follow us for giveaways, updates &amp; daily specials
             </p>
         </div>
     </section>

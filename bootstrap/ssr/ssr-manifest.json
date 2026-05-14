@@ -19,14 +19,14 @@
   "resources/js/Components/DropdownLink.vue": [
     "/build/assets/Index-CpYWkw8N.js"
   ],
+  "resources/js/Components/HeartDivider.vue": [
+    "/build/assets/Events-BGBHrYCm.js"
+  ],
   "resources/js/Components/InputError.vue": [
     "/build/assets/InputError-CNCRBhqx.js"
   ],
   "resources/js/Components/InputLabel.vue": [
     "/build/assets/TextInput-psIAmLjI.js"
-  ],
-  "resources/js/Components/InstagramFeed.vue": [
-    "/build/assets/Index-Csy5hNlu.js"
   ],
   "resources/js/Components/MarkdownEditor.vue": [
     "/build/assets/MediaPicker-DqiXYKR0.js",
@@ -65,10 +65,10 @@
     "/build/assets/GuestLayout-BYbEWX3L.js"
   ],
   "resources/js/Layouts/Partials/Footer.vue": [
-    "/build/assets/Footer-BGKIJPJS.js"
+    "/build/assets/Footer-C-q6ffrj.js"
   ],
   "resources/js/Layouts/Partials/Header.vue": [
-    "/build/assets/Footer-BGKIJPJS.js"
+    "/build/assets/Footer-C-q6ffrj.js"
   ],
   "resources/js/Pages/Admin/Dashboard.vue": [
     "/build/assets/Dashboard-0OoHAnt0.js"
@@ -116,40 +116,40 @@
     "/build/assets/VerifyEmail-Cussh9O7.js"
   ],
   "resources/js/Pages/Calendar/Index.vue": [
-    "/build/assets/Index-BhypLbp3.js"
+    "/build/assets/Index-CKmNnwpc.js"
   ],
   "resources/js/Pages/Competition/Index.vue": [
-    "/build/assets/Index-GcAatiT1.js"
+    "/build/assets/Index-Dm_Np1xt.js"
   ],
   "resources/js/Pages/Competition/Show.vue": [
-    "/build/assets/Show-CJqD3pfI.js"
+    "/build/assets/Show-PBZj2XiZ.js"
   ],
   "resources/js/Pages/Home/Index.vue": [
-    "/build/assets/Index-Csy5hNlu.js"
+    "/build/assets/Index-qFVVQIlk.js"
   ],
   "resources/js/Pages/Home/Partials/About.vue": [
-    "/build/assets/About-Bivxa3Mz.js"
+    "/build/assets/About-C2QIkyb-.js"
   ],
   "resources/js/Pages/Home/Partials/Contact.vue": [
-    "/build/assets/Contact-BmsHoFsW.js"
+    "/build/assets/Contact-CeW7ugJi.js"
   ],
   "resources/js/Pages/Home/Partials/Events.vue": [
-    "/build/assets/Events-B1fwvD_B.js"
+    "/build/assets/Events-BGBHrYCm.js"
   ],
   "resources/js/Pages/Home/Partials/Hero.vue": [
-    "/build/assets/Hero-BphQp_Mf.js"
+    "/build/assets/Hero-CilBVCSr.js"
   ],
   "resources/js/Pages/Home/Partials/News.vue": [
-    "/build/assets/News-CB_hNH4D.js"
+    "/build/assets/News-DVhk-Iyk.js"
   ],
   "resources/js/Pages/Home/Partials/Services.vue": [
-    "/build/assets/Services-BQawzYII.js"
+    "/build/assets/Services-CGPqnB6E.js"
   ],
   "resources/js/Pages/Home/Partials/Stats.vue": [
-    "/build/assets/Stats-CHyDGBt9.js"
+    "/build/assets/Stats-D2JgNwA-.js"
   ],
-  "resources/js/Pages/Home/Partials/Volunteer.vue": [
-    "/build/assets/Volunteer-C-Q4WiYx.js"
+  "resources/js/Pages/Home/Partials/WhyUs.vue": [
+    "/build/assets/WhyUs-B6rDt3MW.js"
   ],
   "resources/js/Pages/Internal/Activities/Create.vue": [
     "/build/assets/Create-DiciEohC.js"
@@ -221,16 +221,16 @@
     "/build/assets/Edit-DQ0SWXMc.js"
   ],
   "resources/js/Pages/Internal/Posts/Index.vue": [
-    "/build/assets/Index-CD_V8_KE.js"
+    "/build/assets/Index-CyLjyHs_2.js"
   ],
   "resources/js/Pages/Page/Show.vue": [
-    "/build/assets/Show-Ca_G2Hum.js"
+    "/build/assets/Show-BtrWLJ7o.js"
   ],
   "resources/js/Pages/Post/Index.vue": [
-    "/build/assets/Index-BGj-Oqpg.js"
+    "/build/assets/Index-pQ3V2-Ov.js"
   ],
   "resources/js/Pages/Post/Show.vue": [
-    "/build/assets/Show--Sd8XPPC.js"
+    "/build/assets/Show-D29n8h03.js"
   ],
   "resources/js/Pages/Profile/Edit.vue": [
     "/build/assets/Edit-CmqFUoVo.js"

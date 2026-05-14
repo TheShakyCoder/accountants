@@ -1,68 +1,79 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 
-const news = [
+const insights = [
     {
-        date: '1 May 2026',
-        title: 'New American candy shipment just landed',
-        excerpt: 'We\'ve got a fresh batch of viral TikTok snacks, Takis, and limited-edition Reese\'s flavours — grab them before they\'re gone!',
-        tag: 'New Stock',
-        tagColor: 'bg-brand-100 text-brand-700',
+        date: '6 May 2026',
+        category: 'Tax',
+        title: 'Self Assessment 2025/26 — what\'s changed for sole traders',
+        excerpt: 'A short walkthrough of the basis-period reform, MTD timelines and three deductions most people miss.',
+        readMins: 5,
     },
     {
-        date: '15 Apr 2026',
-        title: 'Pick \'n\' mix trailer now available for hire',
-        excerpt: 'Bring the pick \'n\' mix experience to your wedding, party, or corporate event. Our mobile sweet shop is ready to roll!',
-        tag: 'Hire',
-        tagColor: 'bg-purple-100 text-purple-700',
+        date: '22 Apr 2026',
+        category: 'Business',
+        title: 'Should you incorporate? Five honest questions to ask first',
+        excerpt: 'The numbers rarely tell the whole story. Here\'s how we walk clients through the sole-trader-vs-limited decision.',
+        readMins: 4,
     },
     {
-        date: '1 Apr 2026',
-        title: 'Summer sweet hampers now available',
-        excerpt: 'The perfect gift for any sweet tooth — our handmade hampers are packed with a mix of retro, American, and pick \'n\' mix favourites.',
-        tag: 'Gifts',
-        tagColor: 'bg-amber-100 text-amber-700',
+        date: '8 Apr 2026',
+        category: 'Payroll',
+        title: 'NI thresholds for the new tax year — what employers need to do',
+        excerpt: 'A two-minute summary, plus our payroll team\'s checklist for keeping auto-enrolment compliant.',
+        readMins: 3,
     },
 ];
 </script>
 
 <template>
-    <section id="news" class="py-20 bg-white">
+    <section id="insights" class="bg-firm-paper py-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex items-end justify-between mb-14">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-3 block">Latest
-                        News</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-warm-900">
-                        What's <span class="text-gradient-candy">new</span> in the shop
+
+            <!-- Section header -->
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+                <div class="max-w-xl">
+                    <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-3">Insights</p>
+                    <h2 class="font-display text-firm-navy font-semibold leading-tight"
+                        style="font-size: clamp(1.9rem, 3.5vw, 2.5rem);">
+                        Plain-English thinking,
+                        <span class="italic text-firm-steel">from our desk to yours.</span>
                     </h2>
+                    <div class="h-1 w-12 bg-firm-gold mt-5"></div>
                 </div>
                 <Link href="/news-updates"
-                    class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-brand-500 hover:text-brand-700 transition-colors">
-                    All news
+                    class="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-md border border-firm-navy/20 text-sm font-semibold text-firm-navy hover:bg-firm-navy hover:text-white transition-colors">
+                    All articles
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
                     </svg>
                 </Link>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-7">
-                <article v-for="item in news" :key="item.title"
-                    class="group border border-warm-200 rounded-2xl p-6 hover:border-brand-300 hover:shadow-md transition-all cursor-pointer">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-2.5 py-1 rounded-full text-xs font-semibold" :class="item.tagColor">{{ item.tag }}</span>
-                        <time class="text-xs text-warm-400">{{ item.date }}</time>
+            <!-- Cards -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <article
+                    v-for="item in insights" :key="item.title"
+                    class="group bg-white rounded-2xl border border-firm-line p-7 hover:border-firm-navy/15 hover:shadow-firm transition-all duration-300 cursor-pointer flex flex-col"
+                >
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-[10px] font-semibold tracking-[0.18em] uppercase text-firm-gold bg-firm-navy/5 rounded px-2 py-1">
+                            {{ item.category }}
+                        </span>
+                        <time class="text-xs text-firm-slate">{{ item.date }}</time>
                     </div>
-                    <h3 class="font-semibold text-warm-900 mb-3 leading-snug group-hover:text-brand-600 transition-colors">
+                    <h3 class="font-display text-firm-navy font-semibold text-lg leading-snug mb-3 group-hover:text-firm-gold transition-colors">
                         {{ item.title }}
                     </h3>
-                    <p class="text-sm text-warm-500 leading-relaxed">{{ item.excerpt }}</p>
-                    <div class="mt-4 flex items-center gap-1 text-xs font-medium text-brand-500">
-                        Read more
-                        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
+                    <p class="text-sm text-firm-steel leading-relaxed mb-6">{{ item.excerpt }}</p>
+                    <div class="mt-auto pt-4 border-t border-firm-line flex items-center justify-between">
+                        <span class="text-xs text-firm-slate">{{ item.readMins }} min read</span>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-firm-navy group-hover:text-firm-gold transition-colors">
+                            Read article
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
                     </div>
                 </article>
             </div>

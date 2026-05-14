@@ -1,52 +1,81 @@
 <script setup>
-// No extra imports needed
+const credentials = [
+    'Free, no-obligation initial consultation',
+    'Local Penwortham office, easy parking',
+    'Limited company, sole trader and personal tax specialists',
+    'Cloud bookkeeping (Xero, QuickBooks, FreeAgent)',
+    'Fully digital — but we still meet in person',
+];
 </script>
 
 <template>
-    <section id="about" class="grid lg:grid-cols-2 min-h-[560px]">
+    <section id="about" class="bg-firm-paper py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
 
-        <!-- Visual panel -->
-        <div class="relative bg-coffee-dark flex items-center justify-center min-h-[340px] lg:min-h-0 overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-coffee-espresso via-coffee-dark to-coffee-mid"></div>
-            <!-- Decorative rings -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full border border-coffee-caramel/10"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] rounded-full border border-coffee-caramel/15"></div>
-            <!-- Cup SVG -->
-            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" fill="none" class="relative z-10 w-52 h-52 opacity-80">
-                <ellipse cx="130" cy="197" rx="68" ry="13" fill="rgba(196,149,106,0.18)" stroke="rgba(196,149,106,0.45)" stroke-width="1.5"/>
-                <path d="M86 118 Q83 186 130 194 Q177 186 174 118 Z" fill="rgba(107,52,33,0.55)" stroke="rgba(196,149,106,0.55)" stroke-width="1.5"/>
-                <ellipse cx="130" cy="118" rx="44" ry="8.5" fill="rgba(196,149,106,0.12)" stroke="rgba(196,149,106,0.5)" stroke-width="1.5"/>
-                <ellipse cx="130" cy="120" rx="37" ry="7" fill="rgba(28,10,0,0.85)"/>
-                <path d="M118 120 Q124 114 130 120 Q136 126 142 120" stroke="rgba(245,230,211,0.45)" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="130" cy="120" r="2.5" fill="rgba(245,230,211,0.28)"/>
-                <path d="M174 133 Q197 133 197 159 Q197 184 174 179" stroke="rgba(196,149,106,0.55)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <path d="M113 107 Q109 94 113 81" stroke="rgba(245,230,211,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <path d="M130 104 Q126 89 130 74" stroke="rgba(245,230,211,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <path d="M147 107 Q151 94 147 81" stroke="rgba(245,230,211,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
+                <!-- Heading column -->
+                <div class="lg:col-span-5">
+                    <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-4">About 19/6</p>
+                    <h2 class="font-display text-firm-navy font-semibold leading-tight mb-6"
+                        style="font-size: clamp(2rem, 3.5vw, 2.75rem);">
+                        Your accountant, in the village —
+                        <span class="italic text-firm-steel">not in a tower.</span>
+                    </h2>
+                    <div class="h-1 w-12 bg-firm-gold mb-7"></div>
+                    <p class="text-firm-steel leading-relaxed mb-5">
+                        Nineteen and Six is a small, independent practice based in
+                        <strong class="text-firm-navy">Penwortham, Preston</strong>. We work with
+                        sole traders, limited companies, landlords and individuals from across Preston
+                        and South Ribble who want a closer working relationship than a high-street
+                        firm can offer.
+                    </p>
+                    <p class="text-firm-steel leading-relaxed mb-8">
+                        Our aim is simple — to give you the best possible value for your accountancy
+                        fees, and to make sure that when you have a question about tax, you've got
+                        someone you can actually talk to.
+                    </p>
 
-        <!-- Text panel -->
-        <div class="bg-coffee-cream px-8 py-16 lg:px-16 flex flex-col justify-center">
-            <p class="text-coffee-caramel text-xs font-bold uppercase tracking-[0.22em] mb-5">Our Story</p>
-            <h2 class="font-display text-coffee-espresso font-extrabold leading-tight mb-6"
-                style="font-size: clamp(1.9rem, 3.5vw, 2.8rem);">
-                A warm welcome,<br/>every single visit.
-            </h2>
-            <div class="w-14 h-0.5 bg-coffee-gold mb-7"></div>
-            <p class="text-coffee-mid leading-relaxed mb-4">
-                Tucked into the heart of <strong class="text-coffee-espresso">Penwortham village</strong>, Bonbons is more than just a coffee bar — it's a place where conversations linger, friendships deepen, and every cup is made with intention.
-            </p>
-            <p class="text-coffee-mid leading-relaxed mb-4">
-                We serve <strong class="text-coffee-espresso">quality coffee and specialty teas</strong> alongside homemade cakes, hearty breakfasts and light lunches — all in an atmosphere that feels equal parts stylish and unhurried.
-            </p>
-            <p class="text-coffee-mid leading-relaxed mb-8">
-                Whether you're catching up with friends, holding a business meeting, or simply treating yourself — Bonbons is your corner of calm in Preston.
-            </p>
-            <a href="#contact"
-               class="self-start px-6 py-3 bg-coffee-espresso text-coffee-cream text-xs font-bold uppercase tracking-widest rounded hover:bg-coffee-mid transition-all">
-                Come and see us
-            </a>
+                    <a href="#contact"
+                       class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-firm-navy text-white text-sm font-semibold hover:bg-firm-ink transition-colors shadow-firm-sm">
+                        Arrange a free chat
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Credentials column -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-2xl shadow-firm-sm border border-firm-line p-8 sm:p-10">
+                        <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-5">What you get</p>
+                        <ul class="space-y-4">
+                            <li v-for="c in credentials" :key="c" class="flex items-start gap-3.5">
+                                <span class="mt-0.5 grid place-items-center h-7 w-7 rounded-full bg-firm-navy/5 text-firm-navy shrink-0">
+                                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </span>
+                                <span class="text-firm-steel leading-snug pt-0.5">{{ c }}</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 pt-7 border-t border-firm-line grid grid-cols-3 gap-6 text-center">
+                            <div>
+                                <p class="font-display text-3xl font-semibold text-firm-navy">15+</p>
+                                <p class="text-xs uppercase tracking-wider text-firm-slate mt-1">Years advising</p>
+                            </div>
+                            <div>
+                                <p class="font-display text-3xl font-semibold text-firm-navy">200+</p>
+                                <p class="text-xs uppercase tracking-wider text-firm-slate mt-1">Local clients</p>
+                            </div>
+                            <div>
+                                <p class="font-display text-3xl font-semibold text-firm-navy">£0</p>
+                                <p class="text-xs uppercase tracking-wider text-firm-slate mt-1">First consultation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>

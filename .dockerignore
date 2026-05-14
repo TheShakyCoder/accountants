@@ -1,15 +1,40 @@
+# ── Dependencies & build output (rebuilt inside the image) ──────────
 node_modules
 vendor
-.git
+public/build
+public/hot
+
+# ── Secrets & local state ───────────────────────────────────────────
 .env
 .env.local
+.env.*.local
+*.sqlite
+
+# ── Runtime-generated app state ─────────────────────────────────────
 storage/logs/*
 storage/framework/cache/*
 storage/framework/sessions/*
 storage/framework/views/*
 bootstrap/cache/*
-public/build
-public/hot
+
+# ── Local dev tooling — not needed in the production image ──────────
+.ddev
+.git
+.github
+.claude
+nixpacks.toml
+nixpacks-nginx.conf
+nixpacks-start.sh
+
+# ── Tests & one-off scripts ─────────────────────────────────────────
+tests
+phpunit.xml
+import-posts.php
+wp-export.json
 waca
-*.sqlite
+
+# ── Docs & editor cruft ─────────────────────────────────────────────
+DEPLOY.md
+README.md
+.editorconfig
 .DS_Store

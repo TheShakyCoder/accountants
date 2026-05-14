@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware
             $can = $request->user()->getPermissions();
         }
 
-        // Load menu items from database
+        // Load menu items from database; fall back to config defaults if empty
         $navLinks = MenuItem::whereNull('parent_id')
             ->with('children')
             ->orderBy('order')
@@ -52,6 +52,13 @@ class HandleInertiaRequests extends Middleware
             ])
             ->toArray();
 
+        if (empty($navLinks)) {
+            $navLinks = array_map(
+                fn ($l) => $l + ['children' => []],
+                config('site.nav_links', [])
+            );
+        }
+
         return [
             ...parent::share($request),
             'auth' => [
@@ -63,6 +70,8 @@ class HandleInertiaRequests extends Middleware
             ],
             'site' => [
                 'fullname' => config('site.fullname'),
+                'shortname' => config('site.shortname'),
+                'tagline' => config('site.tagline'),
                 'email' => config('site.email'),
                 'telephone' => config('site.telephone'),
                 'address' => config('site.address'),

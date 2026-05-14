@@ -1,26 +1,27 @@
 <?php
 
 return [
-    'fullname' => env('SITE_FULLNAME', 'Penwortham Lollipops'),
-    'address' => env('SITE_ADDRESS', 'Liverpool Road, Penwortham, Preston, PR1 0TB'),
-    'telephone' => env('SITE_TELEPHONE', '01772 378 415'),
-    'email' => env('SITE_EMAIL', 'hello@lolipopslancashire.co.uk'),
-    'established' => env('SITE_ESTABLISHED', '2022'),
-    'opening_times' => "Monday - Saturday: 11:00am - 5:00pm<br>Sunday: Closed",
+    'fullname' => env('SITE_FULLNAME', 'Nineteen and Six — Preston Accountants & Tax Advisers'),
+    'shortname' => env('SITE_SHORTNAME', '19/6'),
+    'tagline' => env('SITE_TAGLINE', 'Nurturing small businesses towards success.'),
+    'address' => env('SITE_ADDRESS', 'Penwortham, Preston, Lancashire'),
+    'telephone' => env('SITE_TELEPHONE', '01772 751135'),
+    'email' => env('SITE_EMAIL', 'info@nineteenandsix.co.uk'),
+    'established' => env('SITE_ESTABLISHED', '2009'),
+    'opening_times' => "Monday – Friday: 9:00am – 5:30pm<br>Evening &amp; Saturday appointments by arrangement",
 
     'social' => [
-        'instagram' => 'https://www.instagram.com/lolipops.penwortham/',
-        'facebook' => 'https://www.facebook.com/Lolipopslancashireltd',
-        'tiktok' => 'https://www.tiktok.com/@lolipops_lancashire',
+        'linkedin' => env('SITE_LINKEDIN', ''),
+        'facebook' => env('SITE_FACEBOOK', ''),
     ],
 
+    // Used as a fallback when the menu_items table is empty.
     'nav_links' => [
-        ['label' => 'Home', 'href' => '/'],
-        ['label' => 'Our Sweets', 'href' => '#sweets'],
-        ['label' => 'About', 'href' => '#about'],
-        ['label' => 'Events', 'href' => '#events'],
-        ['label' => 'News', 'href' => '/news-updates'],
-        ['label' => 'Contact', 'href' => '#contact'],
+        ['label' => 'Services', 'href' => '#services'],
+        ['label' => 'Why 19/6', 'href' => '#why'],
+        ['label' => 'About',    'href' => '#about'],
+        ['label' => 'Insights', 'href' => '#insights'],
+        ['label' => 'Contact',  'href' => '#contact'],
     ],
 
     'robots_allowed' => env('ROBOTS_ALLOWED', false),

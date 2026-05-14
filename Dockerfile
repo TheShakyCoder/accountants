@@ -32,12 +32,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         nginx supervisor curl unzip git \
         libicu-dev libzip-dev libpng-dev libjpeg-dev libfreetype6-dev \
         libssl-dev libonig-dev \
-        nodejs npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
         pcntl opcache pdo pdo_mysql intl zip gd exif bcmath mbstring \
     && pecl install redis && docker-php-ext-enable redis \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Node 22 runtime — only the binary is needed to run the Inertia SSR
+# bundle (it's fully self-contained). Pulled from the build stage so we
+# don't rely on Debian's much older `nodejs` package.
+COPY --from=build-assets /usr/local/bin/node /usr/local/bin/node
 
 # PHP production config
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -71,14 +75,19 @@ RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cac
     && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-# Cache routes at build time (safe — doesn't need env vars)
-RUN php artisan route:cache
+# Note: config/route/view/event caching is done at runtime by the
+# entrypoint, where Coolify's real env vars are available. Caching at
+# build time would only be cleared and rebuilt anyway.
 
 # Entrypoint handles runtime boot (migrations, config cache, etc.)
 COPY .docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
+
+# Coolify reads this; /up is Laravel's built-in health endpoint.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+    CMD curl -fsS http://127.0.0.1/up || exit 1
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
