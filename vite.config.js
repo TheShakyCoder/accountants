@@ -34,4 +34,7 @@ export default defineConfig({
             ? { host: process.env.DDEV_HOSTNAME, protocol: 'wss' }
             : undefined,
     },
+    ssr: {
+        noExternal: true,
+    },
 });
