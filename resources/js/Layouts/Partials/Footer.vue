@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { usePage } from '@inertiajs/vue3';
+import CookieConsent from '@/Components/CookieConsent.vue';
 
 defineProps({
     navLinks: { type: Array, default: () => [] },
@@ -10,6 +11,11 @@ const page = usePage();
 const site = computed(() => page.props.site || {});
 const telHref = computed(() => 'tel:' + (site.value.telephone || '').replace(/\s+/g, ''));
 const year = new Date().getFullYear();
+
+function reopenCookieConsent() {
+    try { localStorage.removeItem('cookie_consent'); } catch (e) {}
+    window.location.reload();
+}
 </script>
 
 <template>
@@ -83,7 +89,7 @@ const year = new Date().getFullYear();
                 <div class="flex gap-5">
                     <a href="#" class="hover:text-firm-cream transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-firm-cream transition-colors">Terms of Use</a>
-                    <a href="#" class="hover:text-firm-cream transition-colors">Cookies</a>
+                    <button type="button" @click="reopenCookieConsent" class="hover:text-firm-cream transition-colors">Cookies</button>
                 </div>
             </div>
 
@@ -92,5 +98,7 @@ const year = new Date().getFullYear();
                 registered office address before going live.
             </p>
         </div>
+
+        <CookieConsent />
     </footer>
 </template>
