@@ -54,12 +54,8 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside));
                 <div class="flex h-[84px] items-center justify-between gap-6">
 
                     <!-- Logo -->
-                    <a href="/" class="flex items-center gap-3 shrink-0 group">
-                        <img
-                            src="/media/logo.gif"
-                            alt="19/6 — Preston Accountants & Tax Advisers"
-                            class="h-14 w-auto"
-                        />
+                    <a href="/" class="flex items-center gap-3 shrink-0 group" aria-label="Acme — Preston Accountants & Tax Advisers">
+                        <span class="font-display text-3xl font-semibold tracking-tight text-firm-navy">Acme</span>
                     </a>
 
                     <!-- Desktop nav -->

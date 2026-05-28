@@ -28,7 +28,7 @@ export default {
                 'firm-lg': '0 32px 70px -28px rgba(15, 23, 42, 0.35)',
             },
             colors: {
-                // ── 19/6 firm palette ─────────────────────────────────────
+                // ── Acme firm palette ─────────────────────────────────────
                 // Pulled from the logo: deep ink-navy disc, with cream + warm gold.
                 firm: {
                     navy:    '#1B2654',  // primary — logo disc

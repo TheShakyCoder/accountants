@@ -15,7 +15,7 @@ const credentials = [
 
                 <!-- Heading column -->
                 <div class="lg:col-span-5">
-                    <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-4">About 19/6</p>
+                    <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-4">About Acme</p>
                     <h2 class="font-display text-firm-navy font-semibold leading-tight mb-6"
                         style="font-size: clamp(2rem, 3.5vw, 2.75rem);">
                         Your accountant, in the village —
@@ -23,7 +23,7 @@ const credentials = [
                     </h2>
                     <div class="h-1 w-12 bg-firm-gold mb-7"></div>
                     <p class="text-firm-steel leading-relaxed mb-5">
-                        Nineteen and Six is a small, independent practice based in
+                        Acme is a small, independent practice based in
                         <strong class="text-firm-navy">Penwortham, Preston</strong>. We work with
                         sole traders, limited companies, landlords and individuals from across Preston
                         and South Ribble who want a closer working relationship than a high-street

@@ -2,8 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(ddev artisan:*)",
-      "Bash(curl:*)",
-      "WebFetch(domain:www.nineteenandsix.co.uk)"
+      "Bash(curl:*)"
     ]
   }
 }

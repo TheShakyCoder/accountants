@@ -24,7 +24,7 @@ const steps = [
 
 const testimonials = [
     {
-        quote: '19/6 took our books off our hands inside a week. The transition was painless and we finally understand our numbers.',
+        quote: 'Acme took our books off our hands inside a week. The transition was painless and we finally understand our numbers.',
         name: 'Sarah Holden',
         role: 'Director, Penwortham boutique',
     },
@@ -52,7 +52,7 @@ const testimonials = [
 
             <!-- Header -->
             <div class="max-w-2xl mb-16">
-                <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-3">Why 19/6</p>
+                <p class="text-xs font-semibold tracking-[0.22em] uppercase text-firm-gold mb-3">Why Acme</p>
                 <h2 class="font-display font-semibold leading-tight text-white"
                     style="font-size: clamp(2rem, 4vw, 2.85rem);">
                     Built for the conversation,

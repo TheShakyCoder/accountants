@@ -19,15 +19,11 @@ const year = new Date().getFullYear();
 
                 <!-- Brand block -->
                 <div class="md:col-span-5">
-                    <a href="/" class="inline-flex items-center gap-4 mb-5 bg-white/95 rounded-xl px-4 py-3">
-                        <img
-                            src="/media/logo.gif"
-                            alt="19/6 — Preston Accountants & Tax Advisers"
-                            class="h-14 w-auto"
-                        />
+                    <a href="/" class="inline-flex items-center gap-4 mb-5 bg-white/95 rounded-xl px-4 py-3" aria-label="Acme — Preston Accountants & Tax Advisers">
+                        <span class="font-display text-3xl font-semibold tracking-tight text-firm-navy">Acme</span>
                     </a>
                     <p class="text-sm leading-relaxed max-w-sm">
-                        Nineteen and Six Ltd — a Penwortham-based firm of accountants and tax advisers,
+                        Acme Ltd — a Penwortham-based firm of accountants and tax advisers,
                         nurturing small businesses and individuals across Preston and South Ribble.
                     </p>
 
@@ -83,7 +79,7 @@ const year = new Date().getFullYear();
             </div>
 
             <div class="pt-8 border-t border-firm-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-firm-cream/45">
-                <p>&copy; {{ year }} Nineteen and Six Ltd. Registered in England &amp; Wales.</p>
+                <p>&copy; {{ year }} Acme Ltd. Registered in England &amp; Wales.</p>
                 <div class="flex gap-5">
                     <a href="#" class="hover:text-firm-cream transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-firm-cream transition-colors">Terms of Use</a>

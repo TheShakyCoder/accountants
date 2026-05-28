@@ -129,7 +129,7 @@ const telHref = computed(() => 'tel:' + (props.site.telephone || '').replace(/\s
                             </div>
                             <div class="flex items-start gap-2.5 text-xs text-firm-slate">
                                 <input type="checkbox" class="mt-0.5 rounded border-firm-line text-firm-navy focus:ring-firm-gold/40" />
-                                <p>I'm happy for 19/6 to contact me about my enquiry. We won't pass your details on, and we won't add you to a marketing list.</p>
+                                <p>I'm happy for Acme to contact me about my enquiry. We won't pass your details on, and we won't add you to a marketing list.</p>
                             </div>
                             <button type="submit"
                                 class="w-full py-3.5 rounded-md bg-firm-navy text-white text-sm font-semibold hover:bg-firm-ink transition-colors shadow-firm-sm">

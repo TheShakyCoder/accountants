@@ -77,7 +77,7 @@ defineProps({
                         <div class="absolute inset-0 rounded-full bg-firm-cream/95 shadow-firm-lg"></div>
                         <div class="absolute inset-6 rounded-full border border-firm-navy/10"></div>
                         <div class="absolute inset-0 flex items-center justify-center p-16">
-                            <img src="/media/logo.gif" alt="19/6 — Preston Accountants & Tax Advisers" class="w-full h-auto" />
+                            <span class="font-display text-7xl font-semibold tracking-tight text-firm-navy" aria-label="Acme — Preston Accountants & Tax Advisers">Acme</span>
                         </div>
                         <!-- Decorative arc -->
                         <div

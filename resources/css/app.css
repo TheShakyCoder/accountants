@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-    /* ── 19/6 firm — page surfaces ──────────────────────────── */
+    /* ── Acme firm — page surfaces ──────────────────────────── */
     .bg-firm-paper {
         background-color: #F7F8FB;
         background-image:
