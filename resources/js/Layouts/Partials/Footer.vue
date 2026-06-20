@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 import CookieConsent from '@/Components/CookieConsent.vue';
+import DemoDisclaimer from '@/Components/DemoDisclaimer.vue';
 
 defineProps({
     navLinks: { type: Array, default: () => [] },
@@ -100,5 +101,6 @@ function reopenCookieConsent() {
         </div>
 
         <CookieConsent />
+        <DemoDisclaimer />
     </footer>
 </template>

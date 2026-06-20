@@ -1,4 +1,4 @@
-# Deploying Penwortham Lollipops with Docker
+# Deploying Acme Accountants with Docker
 
 This repo ships a production-ready **Dockerfile** that builds a single
 container running nginx, PHP-FPM, queue workers, and SSR — all managed
@@ -35,8 +35,8 @@ by Supervisor.
 ## Build & run locally
 
 ```bash
-docker build -t lollipops .
-docker run -p 8080:80 --env-file .env.production lollipops
+docker build -t acme .
+docker run -p 8080:80 --env-file .env.production acme
 ```
 
 ## Coolify setup

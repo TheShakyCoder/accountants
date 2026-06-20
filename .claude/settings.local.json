@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(ddev artisan:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(grep -rni \"lollipop\" /Users/sharifkhan/Stupidly/accountants --include=\"*.vue\" --include=\"*.php\" --include=\"*.js\" --include=\"*.ts\" --include=\"*.json\" --include=\"*.md\" --include=\"*.env*\" --include=\"*.blade.php\")",
+      "Read(//tmp/**)"
     ]
   }
 }
